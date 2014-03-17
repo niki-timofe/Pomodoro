@@ -14,4 +14,5 @@
 @property (weak) IBOutlet NSTextField *pomoField;
 @property (weak) IBOutlet NSTextField *breakField;
 @property (weak) IBOutlet NSTextField *longBreakField;
+
 @end

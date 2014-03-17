@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="breakItem" destination="Jd8-JW-p6u" id="TD7-VW-8H0"/>
                 <outlet property="longBreakItem" destination="k2Z-FQ-IgC" id="HwT-s6-Qvm"/>
+                <outlet property="menuItem" destination="zEi-LV-96w" id="pWd-gA-N3f"/>
                 <outlet property="pomodoroItem" destination="icf-3d-Q3M" id="F0h-ui-KCX"/>
                 <outlet property="statusBar" destination="vxi-zS-9Xb" id="Doc-e7-Nef"/>
                 <outlet property="statusMenu" destination="vxi-zS-9Xb" id="yPz-kR-dXa"/>

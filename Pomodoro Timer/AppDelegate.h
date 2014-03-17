@@ -35,6 +35,7 @@ typedef enum tomatoTypes {
 @property (weak) IBOutlet NSMenuItem *breakItem;
 @property (weak) IBOutlet NSMenuItem *longBreakItem;
 
+@property (weak) IBOutlet NSMenuItem *menuItem;
 
 @property (nonatomic, retain) NSTimer *pomoTimer;
 

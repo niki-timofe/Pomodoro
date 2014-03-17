@@ -20,6 +20,7 @@ NSInteger tomatoTimes[3];
 @synthesize pomoTimer;
 
 - (IBAction)startTimer {
+    _menuItem.title = @"Stop";
     self.pomoTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(tick) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     [rl addTimer:pomoTimer forMode:NSRunLoopCommonModes];
@@ -57,6 +58,7 @@ NSInteger tomatoTimes[3];
 }
 
 - (IBAction)stopTimer {
+    _menuItem.title = @"Run";
     if ([pomoTimer isValid]) {
         [pomoTimer invalidate];
     }
@@ -154,14 +156,11 @@ NSInteger tomatoTimes[3];
 }
 
 - (IBAction)changeState:(id)sender {
-    NSMenuItem *menuItem = (NSMenuItem *)sender;
     if ([pomoTimer isValid]) {
         [self stopTimer];
-        menuItem.title = @"Run";
         
     } else {
         [self startTimer];
-        menuItem.title = @"Stop";
     }
 }
 
