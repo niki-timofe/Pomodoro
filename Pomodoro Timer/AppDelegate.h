@@ -8,8 +8,44 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+extern NSDictionary const *tomatoMessages;
 
-@property (assign) IBOutlet NSWindow *window;
+@class Preferences;
 
+typedef enum tomatoTypes {
+    POMODORO,
+    BREAK,
+    LONG_BREAK
+} Tomato;
+
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
+{
+    NSTimer *pomoTimer;
+    NSInteger secLeft;
+    NSInteger tomatosElapsed;
+    Tomato currentTomato;
+    
+    Preferences *prefsWindow;
+}
+
+@property (strong) IBOutlet NSStatusItem *statusBar;
+@property (weak) IBOutlet NSMenu *statusMenu;
+
+@property (weak) IBOutlet NSMenuItem *pomodoroItem;
+@property (weak) IBOutlet NSMenuItem *breakItem;
+@property (weak) IBOutlet NSMenuItem *longBreakItem;
+
+
+@property (nonatomic, retain) NSTimer *pomoTimer;
+
+- (IBAction)startTimer;
+- (IBAction)stopTimer;
+
+- (IBAction)changeState:(id)sender;
+- (IBAction)changePomodoro:(NSMenuItem *)sender;
+- (IBAction)openPrefsPage:(id)sender;
+
+- (NSInteger)getTimeForTomato:(Tomato)tomato;
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification;
 @end
